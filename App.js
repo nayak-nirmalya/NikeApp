@@ -1,15 +1,18 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, FlatList } from "react-native";
+
+import products from "./src/data/products";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Image
-        source={{
-          uri: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/nike/nike1.png",
-        }}
-        style={styles.image}
+      <FlatList
+        data={products}
+        renderItem={({ item }) => (
+          <Image source={{ uri: item.image }} style={styles.image} />
+        )}
       />
+
       <Text>Hello World!</Text>
       <StatusBar style="auto" />
     </View>
