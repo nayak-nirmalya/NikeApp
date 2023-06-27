@@ -8,7 +8,7 @@ export default function App() {
         source={{
           uri: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/nike/nike1.png",
         }}
-        style={{ width: "100%", aspectRatio: 1 }}
+        style={styles.image}
       />
       <Text>Hello World!</Text>
       <StatusBar style="auto" />
@@ -22,5 +22,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  image: {
+    width: "100%",
+    aspectRatio: 1,
   },
 });
