@@ -29,13 +29,8 @@ const ProductDetailsScreen = () => {
       />
 
       <View style={{ padding: 20 }}>
-        {/* Title */}
         <Text style={styles.title}>{product.name}</Text>
-
-        {/* Price */}
         <Text style={styles.price}>{product.price}</Text>
-
-        {/* Description */}
         <Text style={styles.description}>{product.description}</Text>
       </View>
 
@@ -48,4 +43,20 @@ const ProductDetailsScreen = () => {
 
 export default ProductDetailsScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 34,
+    fontWeight: "500",
+    marginVertical: 10,
+  },
+  price: {
+    fontWeight: "500",
+    fontSize: 16,
+  },
+  description: {
+    marginVertical: 10,
+    fontSize: 18,
+    lineHeight: 30,
+    fontWeight: "300",
+  },
+});
