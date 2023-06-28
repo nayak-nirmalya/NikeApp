@@ -4,6 +4,7 @@ import {
   View,
   FlatList,
   useWindowDimensions,
+  Text,
 } from "react-native";
 import React from "react";
 
@@ -27,11 +28,16 @@ const ProductDetailsScreen = () => {
         pagingEnabled
       />
 
-      {/* Title */}
+      <View style={{ padding: 20 }}>
+        {/* Title */}
+        <Text style={styles.title}>{product.name}</Text>
 
-      {/* Price */}
+        {/* Price */}
+        <Text style={styles.price}>{product.price}</Text>
 
-      {/* Description */}
+        {/* Description */}
+        <Text style={styles.description}>{product.description}</Text>
+      </View>
 
       {/* Add to Cart Button */}
 
