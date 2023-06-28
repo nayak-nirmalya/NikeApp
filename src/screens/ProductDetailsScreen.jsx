@@ -6,6 +6,7 @@ import {
   useWindowDimensions,
   Text,
   ScrollView,
+  Pressable,
 } from "react-native";
 import React from "react";
 
@@ -36,7 +37,9 @@ const ProductDetailsScreen = () => {
         </View>
       </ScrollView>
 
-      {/* Add to Cart Button */}
+      <Pressable style={styles.button}>
+        <Text style={styles.buttonText}>Add to Cart</Text>
+      </Pressable>
 
       {/* Navigation Icon */}
     </View>
@@ -61,5 +64,21 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 30,
     fontWeight: "300",
+    paddingBottom: 65,
+  },
+  button: {
+    backgroundColor: "black",
+    position: "absolute",
+    bottom: 30,
+    width: "90%",
+    alignSelf: "center",
+    alignItems: "center",
+    padding: 20,
+    borderRadius: 100,
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "500",
+    fontSize: 16,
   },
 });
