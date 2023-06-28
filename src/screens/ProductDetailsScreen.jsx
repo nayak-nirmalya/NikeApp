@@ -5,6 +5,7 @@ import {
   FlatList,
   useWindowDimensions,
   Text,
+  ScrollView,
 } from "react-native";
 import React from "react";
 
@@ -17,22 +18,23 @@ const ProductDetailsScreen = () => {
 
   return (
     <View>
-      {/* Image Carousel */}
-      <FlatList
-        data={product.images}
-        renderItem={({ item }) => (
-          <Image source={{ uri: item }} style={{ width, aspectRatio: 1 }} />
-        )}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        pagingEnabled
-      />
+      <ScrollView>
+        <FlatList
+          data={product.images}
+          renderItem={({ item }) => (
+            <Image source={{ uri: item }} style={{ width, aspectRatio: 1 }} />
+          )}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          pagingEnabled
+        />
 
-      <View style={{ padding: 20 }}>
-        <Text style={styles.title}>{product.name}</Text>
-        <Text style={styles.price}>{product.price}</Text>
-        <Text style={styles.description}>{product.description}</Text>
-      </View>
+        <View style={{ padding: 20 }}>
+          <Text style={styles.title}>{product.name}</Text>
+          <Text style={styles.price}>${product.price}</Text>
+          <Text style={styles.description}>{product.description}</Text>
+        </View>
+      </ScrollView>
 
       {/* Add to Cart Button */}
 
@@ -52,6 +54,7 @@ const styles = StyleSheet.create({
   price: {
     fontWeight: "500",
     fontSize: 16,
+    letterSpacing: 1.5,
   },
   description: {
     marginVertical: 10,
