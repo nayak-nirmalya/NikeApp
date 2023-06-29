@@ -9,11 +9,23 @@ import {
 } from "react-native";
 import React from "react";
 
+import cart from "../data/cart";
+import CartListItem from "../components/CartListItem";
+
 const ShoppingCart = () => {
   return (
-    <View>
-      <Text>ShoppingCart</Text>
-    </View>
+    <FlatList
+      data={cart}
+      renderItem={({ item }) => <CartListItem cartItem={item} />}
+      ListFooterComponent={() => (
+        <View style={styles.totalsContainer}>
+          <View style={styles.row}>
+            <Text>SubTotal</Text>
+            <Text>420,69 US$</Text>
+          </View>
+        </View>
+      )}
+    />
   );
 };
 
