@@ -20,8 +20,16 @@ const ShoppingCart = () => {
       ListFooterComponent={() => (
         <View style={styles.totalsContainer}>
           <View style={styles.row}>
-            <Text>SubTotal</Text>
-            <Text>420,69 US$</Text>
+            <Text style={styles.text}>SubTotal</Text>
+            <Text style={styles.text}>420,69 US$</Text>
+          </View>
+          <View style={styles.row}>
+            <Text style={styles.text}>Delivery</Text>
+            <Text style={styles.text}>69.99 US$</Text>
+          </View>
+          <View style={styles.row}>
+            <Text style={styles.textBold}>Total</Text>
+            <Text style={styles.textBold}>420,69.99 US$</Text>
           </View>
         </View>
       )}
