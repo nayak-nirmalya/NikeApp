@@ -1,4 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
+import {
+  Text,
+  FlatList,
+  View,
+  StyleSheet,
+  Pressable,
+  ActivityIndicator,
+  Alert,
+} from "react-native";
 import React from "react";
 
 const ShoppingCart = () => {
