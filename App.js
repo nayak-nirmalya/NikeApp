@@ -9,8 +9,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/* <ProductsScreen /> */}
-      <ProductDetailsScreen />
-      {/* <ShoppingCart /> */}
+      {/* <ProductDetailsScreen /> */}
+      <ShoppingCart />
 
       <StatusBar style="auto" />
     </View>
