@@ -9,6 +9,7 @@ import {
   Pressable,
 } from "react-native";
 import React from "react";
+import { Ionicons } from "@expo/vector-icons";
 
 import products from "../data/products";
 
@@ -43,6 +44,10 @@ const ProductDetailsScreen = () => {
 
       <Pressable onPress={addToCart} style={styles.button}>
         <Text style={styles.buttonText}>Add to Cart</Text>
+      </Pressable>
+
+      <Pressable style={styles.icon}>
+        <Ionicons name="close" size={24} color="white" />
       </Pressable>
 
       {/* Navigation Icon */}
@@ -84,5 +89,13 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "500",
     fontSize: 16,
+  },
+  icon: {
+    position: "absolute",
+    top: 50,
+    right: 20,
+    backgroundColor: "#000000AA",
+    borderRadius: 50,
+    padding: 5,
   },
 });

@@ -30,10 +30,6 @@ const ShoppingCartTotals = () => (
 );
 
 const ShoppingCart = () => {
-  const addToCart = () => {
-    console.warn("Add to Cart!");
-  };
-
   return (
     <>
       <FlatList
@@ -41,7 +37,7 @@ const ShoppingCart = () => {
         renderItem={({ item }) => <CartListItem cartItem={item} />}
         ListFooterComponent={ShoppingCartTotals}
       />
-      <Pressable onPress={addToCart} style={styles.button}>
+      <Pressable style={styles.button}>
         <Text style={styles.buttonText}>Checkout</Text>
       </Pressable>
     </>
