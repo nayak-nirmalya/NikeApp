@@ -46,9 +46,9 @@ const ProductDetailsScreen = () => {
         <Text style={styles.buttonText}>Add to Cart</Text>
       </Pressable>
 
-      <Pressable style={styles.icon}>
+      {/* <Pressable style={styles.icon}>
         <Ionicons name="close" size={24} color="white" />
-      </Pressable>
+      </Pressable> */}
 
       {/* Navigation Icon */}
     </View>
