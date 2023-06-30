@@ -13,27 +13,36 @@ import cart from "../data/cart";
 import CartListItem from "../components/CartListItem";
 
 const ShoppingCart = () => {
+  const addToCart = () => {
+    console.warn("Add to Cart!");
+  };
+
   return (
-    <FlatList
-      data={cart}
-      renderItem={({ item }) => <CartListItem cartItem={item} />}
-      ListFooterComponent={() => (
-        <View style={styles.totalsContainer}>
-          <View style={styles.row}>
-            <Text style={styles.text}>SubTotal</Text>
-            <Text style={styles.text}>420,69 US$</Text>
+    <>
+      <FlatList
+        data={cart}
+        renderItem={({ item }) => <CartListItem cartItem={item} />}
+        ListFooterComponent={() => (
+          <View style={styles.totalsContainer}>
+            <View style={styles.row}>
+              <Text style={styles.text}>SubTotal</Text>
+              <Text style={styles.text}>420,69 US$</Text>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.text}>Delivery</Text>
+              <Text style={styles.text}>69.99 US$</Text>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.textBold}>Total</Text>
+              <Text style={styles.textBold}>420,69.99 US$</Text>
+            </View>
           </View>
-          <View style={styles.row}>
-            <Text style={styles.text}>Delivery</Text>
-            <Text style={styles.text}>69.99 US$</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.textBold}>Total</Text>
-            <Text style={styles.textBold}>420,69.99 US$</Text>
-          </View>
-        </View>
-      )}
-    />
+        )}
+      />
+      <Pressable onPress={addToCart} style={styles.button}>
+        <Text style={styles.buttonText}>Checkout</Text>
+      </Pressable>
+    </>
   );
 };
 
