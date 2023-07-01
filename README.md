@@ -7,7 +7,7 @@ Funcionalities:
 - In app navigation.
 - Global state management with Redux.
 - Add/remove shoes to/from cart.
-- Increase/Decrese quantity in cart.
+- Increase/Decrease quantity in cart.
 
 ### Prerequisites
 
@@ -38,38 +38,14 @@ npm run start
 
 ### Home Screen
 
-<img src="readme_imgs/home_page.png" width="360">
+<img src="readme_imgs/homepage.jpg" width="360">
 
-### Home Screen Categories
+### Product Details Screen / Modal
 
-<img src="readme_imgs/home_page_categories.png" width="360">
+<img src="readme_imgs/detailspage.jpg" width="360">
 
-### Search Result
+### Cart Page
 
-<img src="readme_imgs/search_result.png" width="360">
-
-### Movie Details Screen
-
-<img src="readme_imgs/iron_man.png" width="360">
-
-### TV Details Screen
-
-<img src="readme_imgs/tv_details_screen.png" width="360">
-
-### Video Player Modal
-
-<img src="readme_imgs/video_player.png" width="360">
-
-### Error Screen
-
-<img src="readme_imgs/error_screen.png" width="360">
-
-### App Icon
-
-<img src="readme_imgs/icon.png" width="240">
-
-### Material You Icon
-
-<img src="readme_imgs/installed.png" width="360">
+<img src="readme_imgs/cart.jpg" width="360">
 
 </div>
