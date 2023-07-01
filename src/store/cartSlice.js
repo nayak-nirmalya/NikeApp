@@ -47,3 +47,5 @@ export const selectSubtotal = (state) =>
     (sum, item) => sum + item.product.price * item.quantity,
     0
   );
+
+export const selectSelf = (state) => state.cart;
