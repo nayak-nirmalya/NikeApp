@@ -11,10 +11,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import CartListItem from "../components/CartListItem";
-import { selectSubtotal } from "../store/cartSlice";
+import { selectDeliveryPrice, selectSubtotal } from "../store/cartSlice";
 
 const ShoppingCartTotals = () => {
   const subtotal = useSelector(selectSubtotal);
+  const deliveryFee = useSelector(selectDeliveryPrice);
 
   return (
     <View style={styles.totalsContainer}>
@@ -24,7 +25,7 @@ const ShoppingCartTotals = () => {
       </View>
       <View style={styles.row}>
         <Text style={styles.text}>Delivery</Text>
-        <Text style={styles.text}>69.99 US$</Text>
+        <Text style={styles.text}>{deliveryFee} US$</Text>
       </View>
       <View style={styles.row}>
         <Text style={styles.textBold}>Total</Text>
