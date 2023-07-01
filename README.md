@@ -20,7 +20,7 @@ Funcionalities:
 ### Cloning the repository
 
 ```shell
-git clone https://github.com/nayak-nirmalya/tmdb_app_react_native.git
+git clone https://github.com/nayak-nirmalya/NikeApp.git
 ```
 
 ## Running Project
@@ -46,6 +46,6 @@ npm run start
 
 ### Cart Page
 
-<img src="readme_imgs/cart.jpg" width="360">
+<img src="https://github.com/nayak-nirmalya/NikeApp/assets/52202635/5c26ce19-ac2f-4dd2-a7cd-047e1c8181f6" width="360">
 
 </div>
