@@ -38,7 +38,7 @@ npm run start
 
 ### Home Screen
 
-<img src="readme_imgs/homepage.jpg" width="360">
+<img src="https://github.com/nayak-nirmalya/NikeApp/assets/52202635/0d46471d-88f4-43d0-950c-ac9f5dd9289d" width="360">
 
 ### Product Details Screen / Modal
 
