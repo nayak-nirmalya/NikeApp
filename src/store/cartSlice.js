@@ -39,3 +39,5 @@ export const cartSlice = createSlice({
     },
   },
 });
+
+export const selectNumberOfItems = (state) => state.cart.items.length;
