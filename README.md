@@ -42,7 +42,7 @@ npm run start
 
 ### Product Details Screen / Modal
 
-<img src="readme_imgs/detailspage.jpg" width="360">
+<img src="https://github.com/nayak-nirmalya/NikeApp/assets/52202635/189d3c9e-1e9c-44b1-8a42-a27a1b2ab982" width="360">
 
 ### Cart Page
 
