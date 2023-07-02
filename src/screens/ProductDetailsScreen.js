@@ -12,9 +12,16 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { cartSlice } from "../store/cartSlice";
+import { useGetProductQuery } from "../store/apiSlice";
 
 const ProductDetailsScreen = ({ route }) => {
   const id = route.params.id;
+
+  const { data, error, isLoading } = useGetProductQuery(id);
+
+  if (isLoading) return <ActivityIndicator style={styles.loading} />;
+
+  if (error) return <Text>Error Fetching Products: {error.error}</Text>;
 
   const product = useSelector((state) => state.products.selectedProduct);
   const dispatch = useDispatch();
@@ -94,5 +101,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#000000AA",
     borderRadius: 50,
     padding: 5,
+  },
+  loading: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
