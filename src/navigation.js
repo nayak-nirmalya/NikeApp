@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import ProductsScreen from "./screens/ProductsScreen";
 import ProductDetailsScreen from "./screens/ProductDetailsScreen";
 import ShoppingCart from "./screens/ShoppingCart";
+import TrackOrder from "./screens/TrackOrder";
+
 import { selectNumberOfItems } from "./store/cartSlice";
 
 const Stack = createNativeStackNavigator();
@@ -42,6 +44,7 @@ const Navigation = () => {
           options={{ presentation: "modal" }}
         />
         <Stack.Screen name="Cart" component={ShoppingCart} />
+        <Stack.Screen name="Track Order" component={TrackOrder} />
       </Stack.Navigator>
     </NavigationContainer>
   );
