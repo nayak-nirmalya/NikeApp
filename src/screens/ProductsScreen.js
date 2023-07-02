@@ -17,7 +17,7 @@ const ProductsScreen = ({ navigation }) => {
 
   const { data, isLoading, error } = useGetProductsQuery();
 
-  if (isLoading) return <ActivityIndicator />;
+  if (isLoading) return <ActivityIndicator style={styles.loading} />;
 
   if (error) return <Text>Error Fetching Products.</Text>;
 
@@ -50,6 +50,11 @@ const styles = StyleSheet.create({
   itemContainer: {
     width: "50%",
     padding: 1,
+  },
+  loading: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
