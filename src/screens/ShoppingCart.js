@@ -42,11 +42,27 @@ const ShoppingCartTotals = () => {
 };
 
 const ShoppingCart = () => {
+  const subtotal = useSelector(selectSubtotal);
+  const deliveryFee = useSelector(selectDeliveryPrice);
+  const total = useSelector(selectTotal);
+
   const cartItems = useSelector((state) => state.cart.items);
 
   const [createOrder, { data, error, isLoading }] = useCreateOrderMutation();
 
-  const onCreateOrder = () => {};
+  const onCreateOrder = () => {
+    createOrder({
+      items: cartItems,
+      subtotal,
+      deliveryFee,
+      total,
+      customer: {
+        name: "Nirmalya",
+        address: "India",
+        email: "me@domain.com",
+      },
+    });
+  };
 
   return (
     <>
