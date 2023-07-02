@@ -72,7 +72,11 @@ const ShoppingCart = () => {
         ListFooterComponent={ShoppingCartTotals}
       />
       <Pressable style={styles.button} onPress={onCreateOrder}>
-        <Text style={styles.buttonText}>Checkout</Text>
+        {isLoading ? (
+          <ActivityIndicator />
+        ) : (
+          <Text style={styles.buttonText}>Checkout</Text>
+        )}
       </Pressable>
     </>
   );
