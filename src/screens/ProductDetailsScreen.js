@@ -7,6 +7,7 @@ import {
   Text,
   ScrollView,
   Pressable,
+  ActivityIndicator,
 } from "react-native";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -18,12 +19,8 @@ const ProductDetailsScreen = ({ route }) => {
   const id = route.params.id;
 
   const { data, error, isLoading } = useGetProductQuery(id);
+  const product = data?.data;
 
-  if (isLoading) return <ActivityIndicator style={styles.loading} />;
-
-  if (error) return <Text>Error Fetching Products: {error.error}</Text>;
-
-  const product = useSelector((state) => state.products.selectedProduct);
   const dispatch = useDispatch();
 
   const { width } = useWindowDimensions();
@@ -31,6 +28,10 @@ const ProductDetailsScreen = ({ route }) => {
   const addToCart = () => {
     dispatch(cartSlice.actions.addCartItem({ product }));
   };
+
+  if (isLoading) return <ActivityIndicator style={styles.loading} />;
+
+  if (error) return <Text>Error Fetching Product: {error.error}</Text>;
 
   return (
     <View>
