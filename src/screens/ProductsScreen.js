@@ -13,8 +13,6 @@ import { productsSlice } from "../store/productsSlice";
 import { useGetProductsQuery } from "../store/apiSlice";
 
 const ProductsScreen = ({ navigation }) => {
-  const products = useSelector((state) => state.products.products);
-
   const dispatch = useDispatch();
 
   const { data, isLoading, error } = useGetProductsQuery();
@@ -23,7 +21,7 @@ const ProductsScreen = ({ navigation }) => {
 
   if (error) return <Text>Error Fetching Products.</Text>;
 
-  console.log({ data, isLoading, error });
+  const products = data.data;
 
   return (
     <FlatList
