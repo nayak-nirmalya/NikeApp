@@ -21,11 +21,9 @@ const ProductsScreen = ({ navigation }) => {
 
   if (error) return <Text>Error Fetching Products.</Text>;
 
-  const products = data.data;
-
   return (
     <FlatList
-      data={products}
+      data={data.data}
       renderItem={({ item }) => (
         <Pressable
           onPress={() => {

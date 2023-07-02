@@ -9,7 +9,6 @@ import {
   Pressable,
 } from "react-native";
 import React from "react";
-import { Ionicons } from "@expo/vector-icons";
 import { useSelector, useDispatch } from "react-redux";
 
 import { cartSlice } from "../store/cartSlice";
@@ -47,12 +46,6 @@ const ProductDetailsScreen = () => {
       <Pressable onPress={addToCart} style={styles.button}>
         <Text style={styles.buttonText}>Add to Cart</Text>
       </Pressable>
-
-      {/* <Pressable style={styles.icon}>
-        <Ionicons name="close" size={24} color="white" />
-      </Pressable> */}
-
-      {/* Navigation Icon */}
     </View>
   );
 };
