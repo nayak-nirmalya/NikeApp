@@ -13,7 +13,7 @@ export const cartSlice = createSlice({
     addCartItem: (state, action) => {
       const newProduct = action.payload.product;
       const cartItem = state.items.find(
-        (item) => item.product.id === newProduct.id
+        (item) => item.product._id === newProduct._id
       );
 
       if (cartItem) {
@@ -28,7 +28,7 @@ export const cartSlice = createSlice({
     changeQuantity: (state, action) => {
       const { productId, amount } = action.payload;
       const cartItem = state.items.find(
-        (item) => item.product.id === productId
+        (item) => item.product._id === productId
       );
 
       if (cartItem) cartItem.quantity += amount;
