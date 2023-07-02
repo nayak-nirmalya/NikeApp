@@ -13,7 +13,9 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { cartSlice } from "../store/cartSlice";
 
-const ProductDetailsScreen = () => {
+const ProductDetailsScreen = ({ route }) => {
+  const id = route.params.id;
+
   const product = useSelector((state) => state.products.selectedProduct);
   const dispatch = useDispatch();
 
