@@ -19,7 +19,7 @@ const ProductsScreen = ({ navigation }) => {
 
   if (isLoading) return <ActivityIndicator style={styles.loading} />;
 
-  if (error) return <Text>Error Fetching Products.</Text>;
+  if (error) return <Text>Error Fetching Products: {error.error}</Text>;
 
   return (
     <FlatList
