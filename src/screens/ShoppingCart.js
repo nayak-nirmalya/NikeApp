@@ -8,10 +8,11 @@ import {
   Alert,
 } from "react-native";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import CartListItem from "../components/CartListItem";
 import {
+  cartSlice,
   selectDeliveryPrice,
   selectSubtotal,
   selectTotal,
@@ -46,6 +47,8 @@ const ShoppingCart = () => {
   const deliveryFee = useSelector(selectDeliveryPrice);
   const total = useSelector(selectTotal);
 
+  const dispatch = useDispatch();
+
   const cartItems = useSelector((state) => state.cart.items);
 
   const [createOrder, { data, error, isLoading }] = useCreateOrderMutation();
@@ -68,6 +71,8 @@ const ShoppingCart = () => {
         "Order Has Been Submitted.",
         `Your Order Reference ID: ${result.data.data.ref}`
       );
+
+      dispatch(cartSlice.actions.clear());
     }
   };
 
