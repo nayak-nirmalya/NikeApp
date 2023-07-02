@@ -16,6 +16,7 @@ import {
   selectSubtotal,
   selectTotal,
 } from "../store/cartSlice";
+import { useCreateOrderMutation } from "../store/apiSlice";
 
 const ShoppingCartTotals = () => {
   const subtotal = useSelector(selectSubtotal);
@@ -43,6 +44,10 @@ const ShoppingCartTotals = () => {
 const ShoppingCart = () => {
   const cartItems = useSelector((state) => state.cart.items);
 
+  const [createOrder, { data, error, isLoading }] = useCreateOrderMutation();
+
+  const onCreateOrder = () => {};
+
   return (
     <>
       <FlatList
@@ -50,7 +55,7 @@ const ShoppingCart = () => {
         renderItem={({ item }) => <CartListItem cartItem={item} />}
         ListFooterComponent={ShoppingCartTotals}
       />
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={onCreateOrder}>
         <Text style={styles.buttonText}>Checkout</Text>
       </Pressable>
     </>
