@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { Pressable, Text } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
 
 import ProductsScreen from "./screens/ProductsScreen";
@@ -35,6 +35,14 @@ const Navigation = () => {
                   {numberOfItems}
                 </Text>
               </Pressable>
+            ),
+            headerLeft: () => (
+              <MaterialCommunityIcons
+                onPress={() => navigation.navigate("Track Order")}
+                name="truck-delivery"
+                size={22}
+                color="gray"
+              />
             ),
           })}
         />
