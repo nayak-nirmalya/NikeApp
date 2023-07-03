@@ -22,7 +22,11 @@ const TrackOrder = () => {
         placeholder="Your Order Reference."
       />
       {isLoading && <ActivityIndicator />}
-      {data?.status !== "OK" && <Text>Order Not Found.</Text>}
+      {data?.status !== "OK" && (
+        <View style={styles.orderView}>
+          <Text style={styles.orderNotFount}>Order Not Found.</Text>
+        </View>
+      )}
       {data?.status === "OK" && <Text>Order: {JSON.stringify(data.data)}</Text>}
     </View>
   );
@@ -37,6 +41,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     borderRadius: 5,
+  },
+  orderNotFount: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  orderView: {
+    flexDirection: "row",
   },
 });
 
