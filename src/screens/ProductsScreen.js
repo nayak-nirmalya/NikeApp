@@ -1,22 +1,33 @@
 import React from "react";
-import { StyleSheet, FlatList, Image, Pressable } from "react-native";
+import {
+  StyleSheet,
+  FlatList,
+  Image,
+  Text,
+  Pressable,
+  ActivityIndicator,
+} from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import { productsSlice } from "../store/productsSlice";
+import { useGetProductsQuery } from "../store/apiSlice";
 
 const ProductsScreen = ({ navigation }) => {
-  const products = useSelector((state) => state.products.products);
-
   const dispatch = useDispatch();
+
+  const { data, isLoading, error } = useGetProductsQuery();
+
+  if (isLoading) return <ActivityIndicator style={styles.loading} />;
+
+  if (error) return <Text>Error Fetching Products: {error.error}</Text>;
 
   return (
     <FlatList
-      data={products}
+      data={data.data}
       renderItem={({ item }) => (
         <Pressable
           onPress={() => {
-            dispatch(productsSlice.actions.setSelectedProduct(item.id));
-            navigation.navigate("Product Details");
+            navigation.navigate("Product Details", { id: item._id });
           }}
           style={styles.itemContainer}
         >
@@ -36,6 +47,11 @@ const styles = StyleSheet.create({
   itemContainer: {
     width: "50%",
     padding: 1,
+  },
+  loading: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

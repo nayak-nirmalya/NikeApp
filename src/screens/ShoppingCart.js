@@ -8,14 +8,16 @@ import {
   Alert,
 } from "react-native";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import CartListItem from "../components/CartListItem";
 import {
+  cartSlice,
   selectDeliveryPrice,
   selectSubtotal,
   selectTotal,
 } from "../store/cartSlice";
+import { useCreateOrderMutation } from "../store/apiSlice";
 
 const ShoppingCartTotals = () => {
   const subtotal = useSelector(selectSubtotal);
@@ -41,7 +43,38 @@ const ShoppingCartTotals = () => {
 };
 
 const ShoppingCart = () => {
+  const subtotal = useSelector(selectSubtotal);
+  const deliveryFee = useSelector(selectDeliveryPrice);
+  const total = useSelector(selectTotal);
+
+  const dispatch = useDispatch();
+
   const cartItems = useSelector((state) => state.cart.items);
+
+  const [createOrder, { data, error, isLoading }] = useCreateOrderMutation();
+
+  const onCreateOrder = async () => {
+    const result = await createOrder({
+      items: cartItems,
+      subtotal,
+      deliveryFee,
+      total,
+      customer: {
+        name: "Nirmalya",
+        address: "India",
+        email: "me@domain.com",
+      },
+    });
+
+    if (result.data?.status === "OK") {
+      Alert.alert(
+        "Order Has Been Submitted.",
+        `Your Order Reference ID: ${result.data.data.ref}`
+      );
+
+      dispatch(cartSlice.actions.clear());
+    }
+  };
 
   return (
     <>
@@ -50,8 +83,12 @@ const ShoppingCart = () => {
         renderItem={({ item }) => <CartListItem cartItem={item} />}
         ListFooterComponent={ShoppingCartTotals}
       />
-      <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>Checkout</Text>
+      <Pressable style={styles.button} onPress={onCreateOrder}>
+        {isLoading ? (
+          <ActivityIndicator />
+        ) : (
+          <Text style={styles.buttonText}>Checkout</Text>
+        )}
       </Pressable>
     </>
   );

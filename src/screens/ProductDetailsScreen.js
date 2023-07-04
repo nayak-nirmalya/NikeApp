@@ -7,15 +7,20 @@ import {
   Text,
   ScrollView,
   Pressable,
+  ActivityIndicator,
 } from "react-native";
 import React from "react";
-import { Ionicons } from "@expo/vector-icons";
 import { useSelector, useDispatch } from "react-redux";
 
 import { cartSlice } from "../store/cartSlice";
+import { useGetProductQuery } from "../store/apiSlice";
 
-const ProductDetailsScreen = () => {
-  const product = useSelector((state) => state.products.selectedProduct);
+const ProductDetailsScreen = ({ route }) => {
+  const id = route.params.id;
+
+  const { data, error, isLoading } = useGetProductQuery(id);
+  const product = data?.data;
+
   const dispatch = useDispatch();
 
   const { width } = useWindowDimensions();
@@ -23,6 +28,10 @@ const ProductDetailsScreen = () => {
   const addToCart = () => {
     dispatch(cartSlice.actions.addCartItem({ product }));
   };
+
+  if (isLoading) return <ActivityIndicator style={styles.loading} />;
+
+  if (error) return <Text>Error Fetching Product: {error.error}</Text>;
 
   return (
     <View>
@@ -47,12 +56,6 @@ const ProductDetailsScreen = () => {
       <Pressable onPress={addToCart} style={styles.button}>
         <Text style={styles.buttonText}>Add to Cart</Text>
       </Pressable>
-
-      {/* <Pressable style={styles.icon}>
-        <Ionicons name="close" size={24} color="white" />
-      </Pressable> */}
-
-      {/* Navigation Icon */}
     </View>
   );
 };
@@ -99,5 +102,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#000000AA",
     borderRadius: 50,
     padding: 5,
+  },
+  loading: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
