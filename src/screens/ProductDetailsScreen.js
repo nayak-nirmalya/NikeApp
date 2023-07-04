@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import ToastManager, { Toast } from "toastify-react-native";
 
 import { cartSlice } from "../store/cartSlice";
 import { useGetProductQuery } from "../store/apiSlice";
@@ -27,6 +28,7 @@ const ProductDetailsScreen = ({ route }) => {
 
   const addToCart = () => {
     dispatch(cartSlice.actions.addCartItem({ product }));
+    Toast.success("Item Added to Cart.");
   };
 
   if (isLoading) return <ActivityIndicator style={styles.loading} />;
@@ -35,6 +37,7 @@ const ProductDetailsScreen = ({ route }) => {
 
   return (
     <View>
+      <ToastManager />
       <ScrollView>
         <FlatList
           data={product.images}
