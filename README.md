@@ -1,6 +1,6 @@
 # NikeApp
 
-This is a repository for Nike app that show popular shoes and user can add multiple shoes to cart. Made with React Native, JavaScript, Redux Toolkit, Expo.
+This is a repository for Nike app that show popular shoes and user can add multiple shoes to cart and make payment. Made with React Native, JavaScript, Redux Toolkit, Expo, Stripe for Payment.
 
 Funcionalities:
 
@@ -8,6 +8,9 @@ Funcionalities:
 - Global state management with Redux.
 - Add/remove shoes to/from cart.
 - Increase/Decrease quantity in cart.
+- Toast Notification on Adding Product to Cart.
+- Track Order.
+- Make Payment with Stripe API.
 
 ### Prerequisites
 
@@ -25,7 +28,18 @@ git clone https://github.com/nayak-nirmalya/NikeApp.git
 
 ## Running Project
 
-Clone this Repository. Navigate to root directory and run the following npm command:
+Clone this Repository.
+
+### Setup .env File
+
+Add your Stripe PUBLISHABLE_KEY & [Nike](https://github.com/nayak-nirmalya/NikeApp) Backend URL.
+
+```js
+PUBLISHABLE_KEY=
+BASE_URL=
+```
+
+Navigate to root directory and run the following npm command:
 
 ```shell
 cd NikeApp
