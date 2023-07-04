@@ -24,6 +24,13 @@ export const apiSlice = createApi({
     getOrder: builder.query({
       query: (ref) => `orders/${ref}`,
     }),
+    createPaymentIntent: builder.mutation({
+      query: (data) => ({
+        url: "payments/intents",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -32,4 +39,5 @@ export const {
   useGetProductsQuery,
   useCreateOrderMutation,
   useGetOrderQuery,
+  useCreatePaymentIntentMutation,
 } = apiSlice;
