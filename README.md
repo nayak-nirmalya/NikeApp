@@ -62,4 +62,12 @@ npm run start
 
 <img src="https://github.com/nayak-nirmalya/NikeApp/assets/52202635/5c26ce19-ac2f-4dd2-a7cd-047e1c8181f6" width="360">
 
+### Stripe Payment Modal
+
+<img src="https://github.com/nayak-nirmalya/NikeApp/assets/52202635/158e2ece-42a3-4ad1-aaec-8501823ebd2e" width="360">
+
+### Order Confirmation Alert
+
+<img src="https://github.com/nayak-nirmalya/NikeApp/assets/52202635/46c5529d-50e9-4470-a9d5-85df9c0c3ba7" width="360">
+
 </div>
